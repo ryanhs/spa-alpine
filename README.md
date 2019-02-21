@@ -39,3 +39,18 @@ FROM ryanhs/spa-alpine:latest
 MAINTAINER You <you@youremail.com>
 COPY --from=builder /usr/src/app/build /usr/share/nginx/html
 ```
+
+## Security Headers
+
+nginxconfig.io general security headers disabled in this docker,
+but if you want to add it, then you can append it in `/etc/nginx/nginxconfig.io/general.conf`
+
+**Example:**
+
+```
+add_header X-Frame-Options "SAMEORIGIN" always;
+add_header X-XSS-Protection "1; mode=block" always;
+add_header X-Content-Type-Options "nosniff" always;
+add_header Referrer-Policy "no-referrer-when-downgrade" always;
+add_header Content-Security-Policy "default-src * data: 'unsafe-eval' 'unsafe-inline'" always;
+```
