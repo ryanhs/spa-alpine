@@ -9,6 +9,14 @@ This docker base image, `from nginx-alpine`, and add some config from `nginxconf
 **Only for http static serve**, if you need to do https, then better to put ssl termination at load balancer like haproxy/traefik.
 
 
+## Environment Run Example
+
+change default port to 3000
+
+```
+sudo docker run -d --name spa-test -e PORT=3000 ryanhs/spa-alpine:latest
+```
+
 ## Example
 
 Dockerfile:
