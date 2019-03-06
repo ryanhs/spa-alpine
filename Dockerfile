@@ -1,4 +1,9 @@
 FROM nginx:alpine
 
-# copy defaults config
-COPY config /etc/nginx/
+# auto config
+RUN mkdir -p /docker
+ADD . /docker
+RUN chmod +x /docker/start.sh && chmod +x /docker/configs/* && cp -r /docker/config/* /etc/nginx/
+
+# start
+ENTRYPOINT ["/docker/start.sh"]
