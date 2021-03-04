@@ -1,4 +1,4 @@
-FROM nginx:alpine
+FROM nginx:mainline
 
 # auto config
 RUN mkdir -p /docker
